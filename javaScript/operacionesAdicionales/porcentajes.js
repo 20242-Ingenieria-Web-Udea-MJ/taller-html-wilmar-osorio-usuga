@@ -1,0 +1,6 @@
+function porcentaje(){
+    var numero1 = parseFloat(document.getElementById("numero1").value);
+    var numero2 = parseFloat(document.getElementById("numero2").value);
+    var resultado = (numero1 * numero2) / 100;
+    document.getElementById("resultado").innerHTML = "El " + numero2 + "% de " + numero1 + " es: " + resultado;
+}

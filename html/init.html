@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+    <div class="calculadora">
+        <h1>Calculadora</h1>
+        <div class="display">
+            <input type="text" id="display" disabled>
+        </div>
+        <div class="teclado">
+            <button onclick="limpar()">C</button>
+            <button onclick="apagar()">CE</button>
+            <button onclick="insertarOperacion('/')" class="operador">/</button>
+            <button onclick="insertarOperacion('*')" class="operador">*</button>
+            <button onclick="insertarOperacion('+')" class="operador">/</button>
+            <button onclick="insertarOperacion('-')" class="operador">*</button>
+            <button onclick="insertar('1')">1</button>
+            <button onclick="insertar('2')">2</button>
+            <button onclick="insertar('3')">3</button>
+            <button onclick="insertar('4')">4</button>
+            <button onclick="insertar('5')">5</button>
+            <button onclick="insertar('6')">6</button>
+            <button onclick="insertar('7')">7</button>
+            <button onclick="insertar('8')">8</button>
+            <button onclick="insertar('9')">9</button>
+            <button onclick="calcular()">=</button>
+
+    </div>
+</body>
+<script src="../javaScript/main.js"></script>
+</html>
