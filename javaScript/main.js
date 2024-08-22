@@ -32,12 +32,13 @@ export function agregarPuntoDecimal() {
 export function calcular() {
     let expression = document.getElementById('display').value;
     try {
-        if(/\d+\/0(?!\d)/.test(expression)){
-            throw new Error("no se puede dividir por cero");
-        };
-        document.getElementById('display').value = eval(expression);
-    } catch (e) {
-        document.getElementById('display').value = error.message;
+        if(/\d+\s*\/\s*0(?!\d)/.test(expression)){
+            document.getElementById('display').value = "No se puede dividir por cero";
+        } else {
+            document.getElementById('display').value = eval(expression);
+        }
+    } catch (error) {
+        document.getElementById('display').value = "Error";
     }
 }
 
