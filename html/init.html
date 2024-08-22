@@ -7,30 +7,38 @@
     <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
-    <div class="calculadora">
-        <h1>Calculadora</h1>
-        <div class="display">
-            <input type="text" id="display" disabled>
-        </div>
-        <div class="teclado">
-            <button onclick="limpar()">C</button>
-            <button onclick="apagar()">CE</button>
-            <button onclick="insertarOperacion('/')" class="operador">/</button>
-            <button onclick="insertarOperacion('*')" class="operador">*</button>
-            <button onclick="insertarOperacion('+')" class="operador">/</button>
-            <button onclick="insertarOperacion('-')" class="operador">*</button>
-            <button onclick="insertar('1')">1</button>
-            <button onclick="insertar('2')">2</button>
-            <button onclick="insertar('3')">3</button>
-            <button onclick="insertar('4')">4</button>
-            <button onclick="insertar('5')">5</button>
-            <button onclick="insertar('6')">6</button>
-            <button onclick="insertar('7')">7</button>
-            <button onclick="insertar('8')">8</button>
-            <button onclick="insertar('9')">9</button>
-            <button onclick="calcular()">=</button>
-
-    </div>
+    <table>
+        <tr>
+            <td colspan="4"><input type="text" id="display" readonly></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="7" onclick="agregarNumero(7)"></td>
+            <td><input type="button" value="8" onclick="agregarNumero(8)"></td>
+            <td><input type="button" value="9" onclick="agregarNumero(9)"></td>
+            <td><input type="button" value="/" onclick="agregarOperacion('/')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="4" onclick="agregarNumero(4)"></td>
+            <td><input type="button" value="5" onclick="agregarNumero(5)"></td>
+            <td><input type="button" value="6" onclick="agregarNumero(6)"></td>
+            <td><input type="button" value="*" onclick="agregarOperacion('*')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="1" onclick="agregarNumero(1)"></td>
+            <td><input type="button" value="2" onclick="agregarNumero(2)"></td>
+            <td><input type="button" value="3" onclick="agregarNumero(3)"></td>
+            <td><input type="button" value="-" onclick="agregarOperacion('-')"></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="0" onclick="agregarNumero(0)"></td>
+            <td><input type="button" value="." onclick="agregarPuntoDecimal()"></td>
+            <td><input type="button" value="=" onclick="calcular()"></td>
+            <td><input type="button" value="+" onclick="agregarOperacion('+')"></td>
+        </tr>
+        <tr>
+            <td colspan="4"><input type="button" value="C" onclick="LimpiarCalculadora()"></td>
+        </tr>
+    </table>
 </body>
-<script src="../javaScript/main.js"></script>
+<script type="module" src="../javaScript/main.js"></script>
 </html>

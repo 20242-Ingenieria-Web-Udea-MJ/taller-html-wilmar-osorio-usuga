@@ -46,3 +46,23 @@ button {
 button:hover {
     background-color: #ddd;
 }
+
+table {
+    margin: 50px auto;
+    border-collapse: collapse;
+}
+td {
+    padding: 10px;
+}
+input[type="button"] {
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+}
+#display {
+    width: 212px;
+    height: 50px;
+    font-size: 18px;
+    text-align: right;
+    padding-right: 10px;
+}

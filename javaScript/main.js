@@ -1,83 +1,50 @@
-import {suma} from '../javaScript/operacionesBasicas/suma.js';
-import {resta} from '../javaScript/operacionesBasicas/resta.js';
-import {division} from '../javaScript/operacionesBasicas/division.js';
-import {multiplicación} from '../javaScript/operacionesBasicas/multiplicacion.js';
-import {porcentajes} from './operacionesAdicionales/porcentajes.js';
-import {raiz} from './operacionesAdicionales/Raiz.js';
-import {potencia} from './operacionesAdicionales/potencia.js';
+// import {suma} from '../javaScript/operacionesBasicas/suma.js';
+// import {resta} from '../javaScript/operacionesBasicas/resta.js';
+// import {division} from '../javaScript/operacionesBasicas/division.js';
+// import {multiplicación} from '../javaScript/operacionesBasicas/multiplicacion.js';
+// import {porcentajes} from './operacionesAdicionales/porcentajes.js';
+// import {raiz} from './operacionesAdicionales/Raiz.js';
+// import {potencia} from './operacionesAdicionales/potencia.js';
 
-let display = document.getElementById('display');
-let currentInput = '';
-let operator = '';
-let previousInput = '';
 
-window.insertar = function(number) {
-    currentInput += number;
-    updateDisplay();
-};
-
-window.insertarOperacion = function(op) {
-    if (currentInput === '' && op === '-') {
-        currentInput = '-';
-        updateDisplay();
-        return;
-    }
-    if (currentInput === '') return;
-
-    if (previousInput !== '') {
-        calcular();
-    }
-
-    operator = op;
-    previousInput = currentInput;
-    currentInput = '';
-    updateDisplay();
-};
-
-window.limpar = function() {
-    currentInput = '';
-    previousInput = '';
-    operator = '';
-    updateDisplay();
-};
-
-window.calcular = function() {
-    if (previousInput === '' || currentInput === '') return;
-
-    let result;
-    const prev = parseFloat(previousInput);
-    const current = parseFloat(currentInput);
-
-    switch (operator) {
-        case 'add':
-            result = suma(prev, current);
-            break;
-        case 'subtract':
-            result = resta(prev, current);
-            break;
-        case 'multiply':
-            result = multiplicación(prev, current);
-            break;
-        case 'divide':
-            result = division(prev, current);
-            break;
-        default:
-            return;
-    }
-
-    if (result === null) {
-        alert("Error en la operación");
-        clearDisplay();
-        return;
-    }
-
-    currentInput = result.toString();
-    operator = '';
-    previousInput = '';
-    updateDisplay();
-};
-
-function updateDisplay() {
-    display.value = currentInput;
+//lee el valor del numero y lo muestra en el display
+export function agregarNumero(number) {
+    document.getElementById('display').value += number;
 }
+
+//lee el valor de la operacion y lo muestra en el display
+export function agregarOperacion(operation) {
+    document.getElementById('display').value += " " + operation + " ";
+}
+
+//Función para agregar un punto decimal, asegurándose de que no haya más de uno en una secuencia numérica
+export function agregarPuntoDecimal() {
+    const display = document.getElementById('display').value;
+    const parts = display.split(/[\s+/*-]/); // Dividir por operadores
+    const currentPart = parts[parts.length - 1];
+    if (!currentPart.includes('.')) {
+        document.getElementById('display').value += '.';
+    }
+}
+
+//calcula las operaciones relacionadas
+export function calcular() {
+    let expression = document.getElementById('display').value;
+    try {
+        document.getElementById('display').value = eval(expression);
+    } catch (e) {
+        document.getElementById('display').value = 'Error';
+    }
+}
+
+//limpia el display
+export function LimpiarCalculadora() {
+    document.getElementById('display').value = '';
+}
+
+window.agregarNumero = agregarNumero;
+window.agregarOperacion = agregarOperacion;
+window.agregarPuntoDecimal = agregarPuntoDecimal;
+window.calcular = calcular;
+window.LimpiarCalculadora = LimpiarCalculadora;
 
