@@ -1,5 +1,5 @@
 
 
-function restaresta(a,b){
+export function restaresta(a,b){
     return a-b;
 }

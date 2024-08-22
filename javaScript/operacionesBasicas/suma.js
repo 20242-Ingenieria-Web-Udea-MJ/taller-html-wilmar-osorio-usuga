@@ -1,5 +1,5 @@
 
 
-function suma(a,b){
+export function suma(a,b){
     return a+b;
 }

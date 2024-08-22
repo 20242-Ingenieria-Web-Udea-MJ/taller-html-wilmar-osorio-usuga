@@ -7,6 +7,7 @@
 // import {potencia} from './operacionesAdicionales/potencia.js';
 
 
+
 //lee el valor del numero y lo muestra en el display
 export function agregarNumero(number) {
     document.getElementById('display').value += number;
@@ -31,12 +32,20 @@ export function agregarPuntoDecimal() {
 export function calcular() {
     let expression = document.getElementById('display').value;
     try {
+        if(/\d+\/0(?!\d)/.test(expression)){
+            throw new Error("no se puede dividir por cero");
+        };
         document.getElementById('display').value = eval(expression);
     } catch (e) {
-        document.getElementById('display').value = 'Error';
+        document.getElementById('display').value = error.message;
     }
 }
 
+//elimina el ultimo caracter del display
+export function borrar() {
+    const display = document.getElementById('display').value;
+    document.getElementById('display').value = display.substring(0, display.length - 1);
+}
 //limpia el display
 export function LimpiarCalculadora() {
     document.getElementById('display').value = '';
@@ -47,4 +56,5 @@ window.agregarOperacion = agregarOperacion;
 window.agregarPuntoDecimal = agregarPuntoDecimal;
 window.calcular = calcular;
 window.LimpiarCalculadora = LimpiarCalculadora;
+window.borrar = borrar;
 

@@ -1,3 +1,3 @@
-function potencia(base, exponente) {
+export function potencia(base, exponente) {
     return Math.pow(base, exponente);
 }
