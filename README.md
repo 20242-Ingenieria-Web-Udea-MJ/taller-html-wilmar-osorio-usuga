@@ -6,7 +6,7 @@ Una calculadora simple desarrollada en HTML, CSS y JavaScript. Esta aplicación 
 ## Características
 
 - Operaciones básicas: Suma, Resta, Multiplicación, División.
-- Operaciones avanzadas: Raíz cuadrada, Potencia al cuadrado, Porcentaje.
+- Operaciones avanzadas: Raíz cuadrada, Potencia al cuadrado.
 - Manejo de errores: Mensaje de error cuando se intenta dividir por cero.
 - Interfaz de usuario intuitiva y fácil de usar.
 
